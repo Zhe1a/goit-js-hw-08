@@ -7,11 +7,10 @@ const LOCALSTORAGE = 'feedback-form';
 
 form.addEventListener('submit', onSubmit);
 form.addEventListener('input', throttle(onForm, 500));
-
+ let formData ={};
 function onSubmit(e) {
   e.preventDefault();
-  const formData = new FormData(form);
-  formData.forEach((value, name) => console.log(value, name));
+  console.log(JSON.parse(localStorage.getItem(LOCALSTORAGE)));
   e.currentTarget.reset();
   localStorage.removeItem(LOCALSTORAGE);
 }
